@@ -1,5 +1,7 @@
 require("@nomiclabs/hardhat-ethers");
 const fs = require('fs');
+require('solidity-coverage')
+
 // const infuraId = fs.readFileSync(".infuraid").toString().trim() || "";
 
 // const dotenv = require("dotenv");
