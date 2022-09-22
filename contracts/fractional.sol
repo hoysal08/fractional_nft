@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "hardhat/console.sol";
 
 ///@title NFT fractional ownership 
 ///@author Sooraj Hoysal
@@ -44,7 +45,6 @@ contract Fractional is ERC20, Ownable, ERC721Holder {
             "Invalid collection address"
             );
         require(!initialized,"Already Initialized");
-
         collection=IERC721(_collection);
         collection.safeTransferFrom(msg.sender,address(this),_tokenId);
         tokenId=_tokenId;

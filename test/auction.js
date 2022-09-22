@@ -99,7 +99,7 @@ describe("Auction",async function() {
 
         let amount=5;
        
-        await dutch_auction.connect(account1).Buy(amount,{value: ethers.utils.parseEther("5.0")})
+        await dutch_auction.connect(account1).Buy(amount,{value: ethers.utils.parseEther("1.0")})
         expect(await fractioncontract.balanceOf(account1.address)).to.be.equal(amount)
     })
     it("Users can't buy tokens if the amount sent is Insufficent",async function (){
@@ -107,7 +107,7 @@ describe("Auction",async function() {
 
       let amount=10;
      
-      await expect( dutch_auction.connect(account1).Buy(amount,{value: ethers.utils.parseEther("5.0")})).to.be.revertedWith("The eth sent is insufficent");
+      await expect( dutch_auction.connect(account1).Buy(amount,{value: ethers.utils.parseEther(".05")})).to.be.revertedWith("The eth sent is insufficent");
      expect(await fractioncontract.balanceOf(account1.address)).to.be.equal(0);
     });
 
@@ -127,7 +127,7 @@ describe("Auction",async function() {
       const approvedtokens=1000;
       let amount=approvedtokens+1;
 
-     await expect( dutch_auction.connect(account1).Buy(amount,{value: ethers.utils.parseEther("1005.0")})).to.be.revertedWith("The approved amount of tokens are sold out,come back later");
+     await expect( dutch_auction.connect(account1).Buy(amount,{value: ethers.utils.parseEther("100.0")})).to.be.revertedWith("The approved amount of tokens are sold out,come back later");
      expect(await fractioncontract.balanceOf(account1.address)).to.be.equal(0);
     });
      
@@ -137,7 +137,7 @@ describe("Auction",async function() {
 
       let amount=5;
 
-      dutch_auction.connect(account1).Buy(amount,{value: ethers.utils.parseEther("6.0")})
+      dutch_auction.connect(account1).Buy(amount,{value: ethers.utils.parseEther("1.0")})
 
       let owner_balance=await ethers.provider.getBalance(owner.address);
       await dutch_auction.connect(owner).withDraw()

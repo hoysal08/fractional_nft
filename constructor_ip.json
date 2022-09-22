@@ -1,6 +1,6 @@
 
 {
-    "startingprice":"1",
+    "startingprice":"0.01",
     "discountRate":10,
     "timeperiod":3
 }
