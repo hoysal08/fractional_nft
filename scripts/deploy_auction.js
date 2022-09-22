@@ -5,7 +5,7 @@ let nft_collection=require("../src/NFT_collection.json")
 const fs = require("fs");
 const { utils } = require("ethers");
 
-
+//The following deploy scripts mints a nft and addes needed approvals aswell
 async function main(){ 
 
   const fractional_contract_address=utils.getAddress(fractional_contract.address)
@@ -18,13 +18,13 @@ async function main(){
   let tokenid=11;
 
   let nft_contract= new ethers.Contract(nft_collection_address,nft_collection.abi,owner);
-  //await nft_contract.safeMint(owner.address,tokenid);
-  //await nft_contract.connect(owner).approve(fractional_contract_address,tokenid);
+  await nft_contract.safeMint(owner.address,tokenid);
+  await nft_contract.connect(owner).approve(fractional_contract_address,tokenid);
 
   console.log("Initalizing fraction contract with contract",nft_collection_address);
 
   let fraction_contract= new ethers.Contract(fractional_contract_address,fractional_contract.abi,owner);
-  //await fraction_contract.connect(owner).Intialize(nft_collection_address,tokenid);
+  await fraction_contract.connect(owner).Intialize(nft_collection_address,tokenid);
 
   const startingprice=utils.parseEther(params.startingprice)
 
@@ -43,7 +43,6 @@ async function main(){
         abi: JSON.parse(dutch_auction.interface.format('json'))
       }
     
-      //This writes the ABI and address to the mktplace.json
       fs.writeFileSync('./src/auction.json', JSON.stringify(data))
 }
 

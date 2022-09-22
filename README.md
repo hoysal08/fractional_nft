@@ -32,7 +32,7 @@ The repo contains 3 contracts
 - [Fractional contract](https://goerli.etherscan.io/address/0xcCd26278E477D0E0A30979e029Aa61396976de56#readContract)
 - [Dutch auction](https://goerli.etherscan.io/address/0xB05788611Bdbfd43044cBA90315F3C5623fB1203)
 
-## Wanna know more?  
+# Wanna know more?  
 
 
 ### Fractional Contract  

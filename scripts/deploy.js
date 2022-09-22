@@ -1,6 +1,5 @@
 const {ethers,network}=require("hardhat");
 const fs = require("fs");
-// require("dotenv").config();
 
 async function main(){
 
@@ -16,7 +15,6 @@ async function main(){
     abi: JSON.parse(nft_collection.interface.format('json'))
   }
 
-  //This writes the ABI and address to the mktplace.json
   fs.writeFileSync('./src/NFT_collection.json', JSON.stringify(collection_data))
 
 
@@ -33,7 +31,6 @@ async function main(){
     abi: JSON.parse(fractional.interface.format('json'))
   }
 
-  //This writes the ABI and address to the mktplace.json
    fs.writeFileSync('./src/Fractional.json', JSON.stringify(fractional_data))
 }
 
