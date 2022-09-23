@@ -27,7 +27,7 @@ The repo contains 3 contracts
 ```npx hardhat run scripts/deploy.js```  
 ```npx hardhat run scripts/deploy_auction.js```
 
-### Check out verified here (Etherscan)
+### Check out verified contracts here (Etherscan)
 - [NFT contract](https://goerli.etherscan.io/address/0x26d2702B6BEA3DE42660ec420E10cA813495A749)
 - [Fractional contract](https://goerli.etherscan.io/address/0xcCd26278E477D0E0A30979e029Aa61396976de56#readContract)
 - [Dutch auction](https://goerli.etherscan.io/address/0xB05788611Bdbfd43044cBA90315F3C5623fB1203)
